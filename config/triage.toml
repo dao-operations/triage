@@ -1,0 +1,208 @@
+# DAO-ops Triage configuration.
+# Scripts read this file. Keep it aligned with SPEC.md.
+
+[repo]
+owner = "DAO-ops"
+name = "triage"
+description = "Public DAO-ops triage and work tracker."
+
+[project]
+title = "DAO-ops Tracker"
+
+[taxonomy]
+namespaces = ["type:", "priority:", "scope:", "kind:", "target:", "needs:"]
+single = ["type:", "priority:", "target:"]
+required_open = ["type:"]
+warn_open = ["scope:"]
+forbidden_prefixes = ["status:", "br:", "area:"]
+forbidden_labels = ["priority:p4", "br:unscheduled"]
+
+[[fields]]
+name = "Status"
+type = "SINGLE_SELECT"
+options = ["Inbox", "Backlog", "Next", "Doing", "Blocked", "Done"]
+manual_verify = true
+
+[[fields]]
+name = "Priority"
+type = "SINGLE_SELECT"
+options = ["P0", "P1", "P2", "P3"]
+
+[[fields]]
+name = "Effort"
+type = "SINGLE_SELECT"
+options = ["S", "M", "L", "Unknown"]
+
+[[fields]]
+name = "Scope"
+type = "SINGLE_SELECT"
+options = ["styfi", "veyfi", "yeth", "teams", "ybc", "dao", "treasury", "governance", "operations"]
+
+[[fields]]
+name = "Target"
+type = "SINGLE_SELECT"
+options = ["BR3", "BR4", "BR5", "Later"]
+
+[[fields]]
+name = "Due"
+type = "DATE"
+
+[[labels]]
+name = "type:task"
+color = "ededed"
+description = "Concrete work item."
+
+[[labels]]
+name = "type:bug"
+color = "d73a4a"
+description = "Broken or incorrect behavior."
+
+[[labels]]
+name = "type:idea"
+color = "cfd3d7"
+description = "Suggestion, rough improvement, or possible future work."
+
+[[labels]]
+name = "type:decision"
+color = "fbca04"
+description = "Public decision that needs an explicit answer."
+
+[[labels]]
+name = "priority:p0"
+color = "b60205"
+description = "Interrupt-level blocker or deadline risk."
+
+[[labels]]
+name = "priority:p1"
+color = "d93f0b"
+description = "Important and should be planned."
+
+[[labels]]
+name = "priority:p2"
+color = "fbca04"
+description = "Normal useful backlog work."
+
+[[labels]]
+name = "priority:p3"
+color = "fef2c0"
+description = "Opportunistic cleanup or polish."
+
+[[labels]]
+name = "scope:styfi"
+color = "5319e7"
+description = "styfi / styfi.yearn.fi."
+
+[[labels]]
+name = "scope:veyfi"
+color = "5319e7"
+description = "veyfi / veyfi.yearn.fi."
+
+[[labels]]
+name = "scope:yeth"
+color = "5319e7"
+description = "yeth app, protocol, contracts, research, or operations."
+
+[[labels]]
+name = "scope:teams"
+color = "5319e7"
+description = "teams app or teams-facing surface."
+
+[[labels]]
+name = "scope:ybc"
+color = "5319e7"
+description = "ybc app/domain."
+
+[[labels]]
+name = "scope:dao"
+color = "5319e7"
+description = "dao.yearn.fi or dao-facing product surface."
+
+[[labels]]
+name = "scope:treasury"
+color = "0e8a16"
+description = "treasury admin, accounting, capital allocation, reporting."
+
+[[labels]]
+name = "scope:governance"
+color = "0e8a16"
+description = "YIPs, votes, proposals, approvals, delegates, voter coordination."
+
+[[labels]]
+name = "scope:operations"
+color = "0e8a16"
+description = "Recurring ops, team process, reporting, tracking, public updates, repo hygiene."
+
+[[labels]]
+name = "kind:frontend"
+color = "1d76db"
+description = "UI, UX, frontend app work."
+
+[[labels]]
+name = "kind:backend"
+color = "1d76db"
+description = "APIs, indexing, databases, backend services."
+
+[[labels]]
+name = "kind:contracts"
+color = "1d76db"
+description = "Smart contracts, deployments, on-chain integration/review."
+
+[[labels]]
+name = "kind:data"
+color = "1d76db"
+description = "Data extraction, analytics, dashboards, exports, reporting pipelines."
+
+[[labels]]
+name = "kind:ops"
+color = "1d76db"
+description = "Runbooks, monitoring, deployments, support, operational execution."
+
+[[labels]]
+name = "kind:research"
+color = "1d76db"
+description = "Investigation, analysis, design exploration."
+
+[[labels]]
+name = "kind:admin"
+color = "1d76db"
+description = "Coordination, repository hygiene, public updates, budget-process admin."
+
+[[labels]]
+name = "target:br3"
+color = "bfdadc"
+description = "Targeted for BR3."
+
+[[labels]]
+name = "target:br4"
+color = "bfdadc"
+description = "Targeted for BR4."
+
+[[labels]]
+name = "target:br5"
+color = "bfdadc"
+description = "Targeted for BR5."
+
+[[labels]]
+name = "target:later"
+color = "eeeeee"
+description = "Valid but explicitly deferred beyond active BRs."
+
+[[labels]]
+name = "needs:decision"
+color = "e99695"
+description = "Blocked or waiting on a decision."
+
+[[labels]]
+name = "needs:input"
+color = "e99695"
+description = "Blocked or waiting on external input."
+
+[[labels]]
+name = "needs:access"
+color = "e99695"
+description = "Blocked or waiting on access/permissions."
+
+[[labels]]
+name = "needs:review"
+color = "e99695"
+description = "Blocked or waiting on review."
