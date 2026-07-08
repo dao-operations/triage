@@ -10,13 +10,12 @@ description = "Public DAO-ops triage and work tracker."
 title = "DAO-ops Tracker"
 
 [taxonomy]
-namespaces = ["type:", "priority:", "scope:", "kind:", "target:", "needs:"]
-single = ["type:", "priority:", "target:"]
+namespaces = ["type:", "scope:", "kind:", "target:", "needs:"]
+single = ["type:", "target:"]
 required_open = ["type:"]
 warn_open = ["scope:"]
-forbidden_prefixes = ["status:", "br:", "area:"]
+forbidden_prefixes = ["status:", "priority:", "br:", "area:"]
 forbidden_labels = [
-  "priority:p4",
   "br:unscheduled",
   "bug",
   "documentation",
@@ -34,11 +33,6 @@ name = "Status"
 type = "SINGLE_SELECT"
 options = ["Inbox", "Backlog", "Next", "Doing", "Blocked", "Done"]
 manual_verify = true
-
-[[fields]]
-name = "Priority"
-type = "SINGLE_SELECT"
-options = ["P0", "P1", "P2", "P3"]
 
 [[fields]]
 name = "Effort"
@@ -78,26 +72,6 @@ description = "Potential improvement or future work needing refinement."
 name = "type:decision"
 color = "fbca04"
 description = "Decision record or open question requiring an explicit answer."
-
-[[labels]]
-name = "priority:p0"
-color = "b60205"
-description = "Urgent blocker, incident, deadline, or commitment risk."
-
-[[labels]]
-name = "priority:p1"
-color = "d93f0b"
-description = "High-impact work that should be planned deliberately."
-
-[[labels]]
-name = "priority:p2"
-color = "fbca04"
-description = "Standard useful work with normal priority."
-
-[[labels]]
-name = "priority:p3"
-color = "fef2c0"
-description = "Low-urgency cleanup, polish, or optional improvement."
 
 [[labels]]
 name = "scope:styfi"

@@ -10,7 +10,7 @@ Use this for externally meaningful progress summaries. Prefer linking issues ove
 
 ### Changed
 
-- #124 Example scope or priority change.
+- #124 Example scope or target change.
 
 ### Closed / parked
 

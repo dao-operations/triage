@@ -113,29 +113,6 @@ Done
 
 Keep `Inbox` near zero, `Next` under five, and `Doing` at one or two items per person.
 
-### `Priority`
-
-Type: single select.
-
-Values:
-
-```text
-P0
-P1
-P2
-P3
-```
-
-| Priority | Meaning |
-|---|---|
-| `P0` | Urgent work requiring immediate attention. |
-| `P1` | High-impact work that should be planned deliberately. |
-| `P2` | Standard useful work with normal priority. |
-| `P3` | Low-urgency cleanup, polish, or optional improvement. |
-| blank | Not triaged or priority not useful. |
-
-Do not add `P4`. Low-priority work is `P3`, `Backlog`, or `target:later`.
-
 ### `Effort`
 
 Type: single select.
@@ -200,7 +177,11 @@ Type: date.
 
 Use only for real external deadlines: votes, launches, reporting dates, grant deadlines, vendor dates, or public commitments. Do not fill it just because work would be nice to finish soon.
 
-## 6. Labels
+## 6. Native GitHub issue fields
+
+Use GitHub's native issue `Priority` field for priority. Do not create `priority:*` labels or a custom Project `Priority` field.
+
+## 7. Labels
 
 Labels are lowercase kebab-case with namespaces. Labels classify issues; Project `Status` tracks workflow. The `Meaning` text below is the source of truth for GitHub label descriptions in `config/triage.toml`.
 
@@ -221,26 +202,6 @@ type:decision
 | `type:bug` | Incorrect or broken behavior that should be fixed. |
 | `type:idea` | Potential improvement or future work needing refinement. |
 | `type:decision` | Decision record or open question requiring an explicit answer. |
-
-### Priority labels
-
-Use zero or one.
-
-```text
-priority:p0
-priority:p1
-priority:p2
-priority:p3
-```
-
-| Label | Meaning |
-|---|---|
-| `priority:p0` | Urgent blocker, incident, deadline, or commitment risk. |
-| `priority:p1` | High-impact work that should be planned deliberately. |
-| `priority:p2` | Standard useful work with normal priority. |
-| `priority:p3` | Low-urgency cleanup, polish, or optional improvement. |
-
-Mirror the Project `Priority` field when useful. If they drift, fix both during triage.
 
 ### Scope labels
 
@@ -336,15 +297,15 @@ needs:review
 
 When an issue is blocked, set Project `Status = Blocked`, add the relevant `needs:*` label if useful, and leave a blocker comment.
 
-## 7. Labels deliberately not used
+## 8. Labels deliberately not used
 
 Do not create these initially:
 
 ```text
 status:*
+priority:*
 br:*
 area:*
-priority:p4
 br:unscheduled
 bug
 documentation
@@ -360,12 +321,12 @@ wontfix
 Reasons:
 
 - Status belongs in the Project `Status` field, not in labels.
+- Priority belongs in GitHub's native issue `Priority` field, not in labels.
 - `target:*` replaces the older `br:*` namespace and works if targets later stop being BR-only.
 - `area:*` overlaps with `scope:*` and `kind:*`.
-- `priority:p4` overlaps with `Backlog`, blank `Target`, and `target:later`.
 - Default GitHub labels are too broad for this tracker; use the namespaced taxonomy instead.
 
-## 8. Issue templates
+## 9. Issue templates
 
 Use four templates:
 
@@ -374,11 +335,11 @@ Use four templates:
 - Idea
 - Decision
 
-Templates set only the `type:*` label. Scope, priority, effort, target, due date, and needs labels are triage decisions.
+Templates set only the `type:*` label. Scope, effort, target, due date, needs labels, and native GitHub priority are triage decisions.
 
 Templates do not require body fields or title prefixes. Title-only issues are acceptable at intake; triage can add detail, split, or close them later.
 
-## 9. Views
+## 10. Views
 
 Create saved Project views manually once. Recommended views are in `docs/project-views.md`.
 
@@ -393,7 +354,7 @@ Initial set:
 
 Avoid BR-specific views unless they are actively used. A grouped `By target` view is usually enough.
 
-## 10. Operating process
+## 11. Operating process
 
 ### Capture
 
@@ -411,16 +372,16 @@ For each Inbox issue:
 2. Ensure exactly one `type:*` label.
 3. Add one or more `scope:*` labels if the issue stays open.
 4. Add `kind:*` labels only when useful.
-5. Add at most one `priority:*` label.
+5. Set GitHub issue `Priority` when useful.
 6. Add at most one `target:*` label if the work is targeted.
-7. Set Project fields: `Status`, `Priority`, `Effort`, `Scope`, `Target`, `Due`.
+7. Set Project fields: `Status`, `Effort`, `Scope`, `Target`, `Due`.
 8. Move to `Backlog`, `Next`, `Blocked`, or `Done`.
 
 ### Planning a target / BR
 
 Before a new BR or target window:
 
-1. Review `Backlog`, `Next`, P0/P1, and blocked issues.
+1. Review `Backlog`, `Next`, high-priority, urgent, and blocked issues.
 2. Select fewer issues than feels comfortable.
 3. Apply the relevant `target:*` label and Project `Target` value.
 4. Keep only near-term pullable work in `Next`.
@@ -480,7 +441,7 @@ Keep it factual:
 
 If nothing meaningful changed, say so plainly.
 
-## 11. Invariants
+## 12. Invariants
 
 - One repo.
 - One GitHub Project.
@@ -488,7 +449,6 @@ If nothing meaningful changed, say so plainly.
 - No mirrored status labels.
 - Exactly one `type:*` label on triaged issues.
 - At least one `scope:*` label on triaged open issues.
-- At most one `priority:*` label.
 - At most one `target:*` label.
 - `kind:*` and `needs:*` are optional.
 - `Next` is small.
@@ -497,7 +457,7 @@ If nothing meaningful changed, say so plainly.
 - Close aggressively.
 - Public context beats silent board movement.
 
-## 12. Automation boundary
+## 13. Automation boundary
 
 Automate:
 
@@ -517,7 +477,7 @@ Do not initially automate:
 
 GitHub issue fields are a possible later upgrade if the organization standardizes them, but the initial system uses labels + Project fields because they are portable, scriptable, and easy to understand.
 
-## 13. Setup order
+## 14. Setup order
 
 1. Commit this skeleton into `dao-operations/triage`.
 2. Run `gh auth refresh -s project`.
@@ -529,7 +489,7 @@ GitHub issue fields are a possible later upgrade if the organization standardize
 8. Run `make check OWNER=dao-operations REPO=triage`.
 9. Start using it.
 
-## 14. When to evolve this system
+## 15. When to evolve this system
 
 Add complexity only after repeated manual pain.
 

@@ -10,7 +10,6 @@ Group by: `Status`.
 
 Visible fields:
 
-- `Priority`
 - `Effort`
 - `Scope`
 - `Target`
@@ -30,7 +29,7 @@ status:Next,Doing,Blocked
 
 Group by: `Status`.
 
-Sort: priority descending, then due date ascending.
+Sort: due date ascending, then recently updated.
 
 Purpose: what the two maintainers actually need to look at.
 
@@ -44,7 +43,7 @@ status:Blocked
 
 Group by: `Scope` or Labels.
 
-Visible fields: `Priority`, `Target`, `Due`, Assignees, Labels.
+Visible fields: `Target`, `Due`, Assignees, Labels.
 
 Purpose: make external input, access, review, dependencies, and decisions visible.
 
@@ -80,9 +79,9 @@ Filter:
 label:"type:bug" is:open
 ```
 
-Group by: `Priority`.
+Group by: `Status`.
 
-Purpose: defects by severity.
+Purpose: defects by workflow state.
 
 ## 7. Done
 

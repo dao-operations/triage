@@ -20,8 +20,8 @@ Recommend issues to target, stretch, defer, or close.
 - A target means intended, not guaranteed.
 - Under-commit.
 - Prefer fewer, clearer commitments.
-- Keep P0/P1 visible.
-- Include P3 only if opportunistic.
+- Keep urgent and high-priority issues visible.
+- Include low-priority issues only if opportunistic.
 - Use `target:later` for valid but explicitly deferred work.
 - Do not bury blockers.
 
