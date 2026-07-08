@@ -4,7 +4,9 @@ This repo tracks public DAO-ops work.
 
 Before opening an issue, check that the content is public-safe. Do not include secrets, private commercial context, personal data, exploitable security details, signer/control details, or privileged legal/tax material.
 
-Good issues have:
+Title-only issues are acceptable for intake. Triage can add detail, split, or close them later.
+
+Good triaged issues have:
 
 - a precise title;
 - a clear outcome;

@@ -46,7 +46,7 @@ Do not create status labels. Do not use `br:*`; use `target:*`.
 
 ## Issue quality bar
 
-A good issue has:
+Title-only issues are acceptable at intake. A good triaged issue has:
 
 - clear title;
 - desired outcome;

@@ -1,5 +1,1 @@
 blank_issues_enabled: false
-contact_links:
-  - name: Public-safety guidance
-    url: https://github.com/dao-operations/triage/blob/master/SECURITY.md
-    about: Review what should not be posted in public issues.

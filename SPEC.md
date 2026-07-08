@@ -51,7 +51,6 @@ triage/
   SPEC.md
   ROADMAP.md
   CHANGELOG.md
-  SECURITY.md
   CONTRIBUTING.md
   AGENTS.md
   Makefile
@@ -377,7 +376,7 @@ Use four templates:
 
 Templates set only the `type:*` label. Scope, priority, effort, target, due date, and needs labels are triage decisions.
 
-Every template asks for public-safe content. The checkbox is not legal cover; it is a friction point to prevent accidental leakage.
+Templates do not require body fields or title prefixes. Title-only issues are acceptable at intake; triage can add detail, split, or close them later.
 
 ## 9. Views
 
