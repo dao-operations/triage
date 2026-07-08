@@ -5,6 +5,8 @@
 - GitHub CLI authenticated for the target org.
 - Python 3.11+.
 - Permission to create/update labels and organization Projects.
+- Organization issue types enabled: `Task`, `Bug`, `Feature`, `Idea`, `Decision`.
+- Organization issue fields enabled: `Priority`, `Effort`.
 
 Refresh GitHub CLI project scope:
 
@@ -58,8 +60,9 @@ Open the created organization Project and verify:
 2. Project visibility is public.
 3. The Project is linked to `dao-operations/triage`.
 4. `Status` has exactly: `Inbox`, `Backlog`, `Next`, `Doing`, `Blocked`, `Done`.
-5. Custom fields exist: `Effort`, `Scope`, `Target`, `Due`.
-6. Saved views match `docs/project-views.md`.
+5. Custom fields exist: `Scope`, `Target`, `Due`.
+6. Native issue metadata exists: Issue Type, Priority, Effort.
+7. Saved views match `docs/project-views.md`.
 
 `Status` often exists on new Projects by default, so scripts warn instead of destructively mutating it.
 

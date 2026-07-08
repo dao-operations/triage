@@ -13,19 +13,22 @@ Turn Inbox issues into a clean, public-safe backlog.
 ## Recommend for each issue
 
 - keep / close / duplicate / private-only;
-- `type:*` label;
+- native GitHub issue type;
 - one or more `scope:*` labels;
 - optional `kind:*` labels;
 - optional `target:*` label;
 - optional `needs:*` label;
 - native GitHub issue `Priority` when useful;
-- Project fields: `Status`, `Effort`, `Scope`, `Target`, `Due`.
+- native GitHub issue `Effort` when useful;
+- Project fields: `Status`, `Scope`, `Target`, `Due`.
 
 ## Rules
 
 - Do not invent labels.
+- Do not create type labels; use GitHub's native issue type.
 - Do not create status labels.
 - Do not create priority labels; use GitHub's native issue `Priority` field.
+- Do not create effort labels; use GitHub's native issue `Effort` field.
 - Use `target:*`, not `br:*`.
 - Do not assign a target unless the issue is actually targeted.
 - Use blank target for unassigned work.
@@ -41,9 +44,11 @@ Turn Inbox issues into a clean, public-safe backlog.
 ### #123 Title
 
 Recommendation: keep / close / duplicate / private-only
-Labels: `type:task`, `scope:yeth`, `kind:frontend`, `target:br4`
+Issue type: Task
+Labels: `scope:yeth`, `kind:frontend`, `target:br4`
 GitHub issue Priority: High
-Project fields: Status = Backlog, Effort = M, Scope = yeth, Target = BR4
+GitHub issue Effort: Medium
+Project fields: Status = Backlog, Scope = yeth, Target = BR4
 Rationale: ...
 Next action: ...
 ```

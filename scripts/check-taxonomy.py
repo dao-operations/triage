@@ -25,6 +25,7 @@ def config_errors(config: dict) -> list[str]:
     errors: list[str] = []
     labels = config.get("labels", [])
     label_names = {label.get("name") for label in labels}
+    forbidden_prefixes = tuple(config.get("taxonomy", {}).get("forbidden_prefixes", []))
 
     for label in labels:
         description = str(label.get("description", "")).strip()
@@ -32,6 +33,9 @@ def config_errors(config: dict) -> list[str]:
             errors.append(f"config label {label.get('name')!r} must have a GitHub label description")
         if description.lower().startswith("meaning:"):
             errors.append(f"config label {label.get('name')!r} description should not include the old 'Meaning:' prefix")
+        name = str(label.get("name", ""))
+        if name.startswith(forbidden_prefixes):
+            errors.append(f"config must not define forbidden label {name!r}")
 
     if "scope:dao" not in label_names:
         errors.append("config must define scope:dao")
@@ -40,6 +44,8 @@ def config_errors(config: dict) -> list[str]:
         errors.append("config must not define the legacy DAO-app scope label")
 
     for field in config.get("fields", []):
+        if field.get("name") in {"Priority", "Effort"}:
+            errors.append(f"config must not define custom Project field {field.get('name')!r}; use native issue fields")
         if field.get("name") == "Scope":
             options = [str(option) for option in field.get("options", [])]
             non_lower = [option for option in options if option != option.lower()]

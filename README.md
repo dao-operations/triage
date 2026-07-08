@@ -42,7 +42,7 @@ Then open the Project UI, verify the `Status` options, create the saved views in
 ## Daily use
 
 1. Capture work as an issue.
-2. Triage Inbox issues into clear labels and Project fields.
+2. Triage Inbox issues into clear native metadata, labels, and Project fields.
 3. Keep `Next` small and `Doing` smaller.
 4. Comment when blocked.
 5. Close aggressively when done, duplicated, invalid, private, or obsolete.

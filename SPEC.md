@@ -58,10 +58,7 @@ triage/
   .gitignore
   .github/
     ISSUE_TEMPLATE/
-      task.yml
-      bug.yml
-      idea.yml
-      decision.yml
+      issue.md
       config.yml
     workflows/
       taxonomy-check.yml
@@ -113,27 +110,6 @@ Done
 
 Keep `Inbox` near zero, `Next` under five, and `Doing` at one or two items per person.
 
-### `Effort`
-
-Type: single select.
-
-Values:
-
-```text
-S
-M
-L
-Unknown
-```
-
-| Effort | Meaning |
-|---|---|
-| `S` | Less than half a day. |
-| `M` | One to two days. |
-| `L` | Several days, materially complex, or cross-cutting. |
-| `Unknown` | Needs discovery before sizing. |
-| blank | Effort not worth tracking. |
-
 ### `Scope`
 
 Type: single select.
@@ -179,29 +155,54 @@ Use only for real external deadlines: votes, launches, reporting dates, grant de
 
 ## 6. Native GitHub issue fields
 
+Use native GitHub issue metadata for cross-repo classification. Do not duplicate these as labels or custom Project fields.
+
+### Issue Type
+
+Values used by this repo:
+
+```text
+Task
+Bug
+Feature
+Idea
+Decision
+```
+
+| Issue Type | Meaning |
+|---|---|
+| `Task` | Concrete work item with a clear completion signal. |
+| `Bug` | Incorrect or broken behavior that should be fixed. |
+| `Feature` | Request for new or changed functionality. |
+| `Idea` | Potential improvement or future work needing refinement. |
+| `Decision` | Decision record or open question requiring an explicit answer. |
+
+### Priority
+
 Use GitHub's native issue `Priority` field for priority. Do not create `priority:*` labels or a custom Project `Priority` field.
+
+### Effort
+
+Use GitHub's native issue `Effort` field for sizing when useful. Do not create `effort:*` labels or a custom Project `Effort` field.
+
+Values:
+
+```text
+High
+Medium
+Low
+```
+
+| Effort | Meaning |
+|---|---|
+| `Low` | Small, straightforward work. |
+| `Medium` | Moderate work that needs planning or coordination. |
+| `High` | Large, complex, cross-cutting, or discovery-heavy work. |
+| blank | Effort not worth tracking yet. |
 
 ## 7. Labels
 
 Labels are lowercase kebab-case with namespaces. Labels classify issues; Project `Status` tracks workflow. The `Meaning` text below is the source of truth for GitHub label descriptions in `config/triage.toml`.
-
-### Type labels
-
-Use exactly one.
-
-```text
-type:task
-type:bug
-type:idea
-type:decision
-```
-
-| Label | Meaning |
-|---|---|
-| `type:task` | Concrete work item with a clear completion signal. |
-| `type:bug` | Incorrect or broken behavior that should be fixed. |
-| `type:idea` | Potential improvement or future work needing refinement. |
-| `type:decision` | Decision record or open question requiring an explicit answer. |
 
 ### Scope labels
 
@@ -302,8 +303,10 @@ When an issue is blocked, set Project `Status = Blocked`, add the relevant `need
 Do not create these initially:
 
 ```text
+type:*
 status:*
 priority:*
+effort:*
 br:*
 area:*
 br:unscheduled
@@ -320,24 +323,19 @@ wontfix
 
 Reasons:
 
+- Issue classification belongs in GitHub's native issue type, not in labels.
 - Status belongs in the Project `Status` field, not in labels.
 - Priority belongs in GitHub's native issue `Priority` field, not in labels.
+- Effort belongs in GitHub's native issue `Effort` field, not in labels or Project fields.
 - `target:*` replaces the older `br:*` namespace and works if targets later stop being BR-only.
 - `area:*` overlaps with `scope:*` and `kind:*`.
 - Default GitHub labels are too broad for this tracker; use the namespaced taxonomy instead.
 
 ## 9. Issue templates
 
-Use four templates:
+Use one minimal template named `Issue`.
 
-- Task
-- Bug
-- Idea
-- Decision
-
-Templates set only the `type:*` label. Scope, effort, target, due date, needs labels, and native GitHub priority are triage decisions.
-
-Templates do not require body fields or title prefixes. Title-only issues are acceptable at intake; triage can add detail, split, or close them later.
+The template does not set labels, require body fields, or add title prefixes. Title-only issues are acceptable at intake. Choose the native issue type manually in the GitHub issue UI, then let triage add detail, labels, and fields when needed.
 
 ## 10. Views
 
@@ -350,7 +348,8 @@ Initial set:
 3. **Blocked** — blocked issues grouped by `needs:*` or `Scope`.
 4. **By target** — grouped by `Target`.
 5. **By scope** — grouped by `Scope`.
-6. **Done** — recently closed/completed items.
+6. **Bugs** — native issue type `Bug`, grouped by `Status`.
+7. **Done** — recently closed/completed items.
 
 Avoid BR-specific views unless they are actively used. A grouped `By target` view is usually enough.
 
@@ -369,12 +368,12 @@ Run triage once or twice per week.
 For each Inbox issue:
 
 1. Close it if duplicate, obsolete, unsafe for public tracking, invalid, too vague, or not actionable.
-2. Ensure exactly one `type:*` label.
+2. Set the native GitHub issue type.
 3. Add one or more `scope:*` labels if the issue stays open.
 4. Add `kind:*` labels only when useful.
-5. Set GitHub issue `Priority` when useful.
+5. Set native GitHub issue `Priority` and `Effort` when useful.
 6. Add at most one `target:*` label if the work is targeted.
-7. Set Project fields: `Status`, `Effort`, `Scope`, `Target`, `Due`.
+7. Set Project fields: `Status`, `Scope`, `Target`, `Due`.
 8. Move to `Backlog`, `Next`, `Blocked`, or `Done`.
 
 ### Planning a target / BR
@@ -447,7 +446,7 @@ If nothing meaningful changed, say so plainly.
 - One GitHub Project.
 - One canonical issue tracker.
 - No mirrored status labels.
-- Exactly one `type:*` label on triaged issues.
+- Triaged issues use a native GitHub issue type, not a `type:*` label.
 - At least one `scope:*` label on triaged open issues.
 - At most one `target:*` label.
 - `kind:*` and `needs:*` are optional.
@@ -473,9 +472,9 @@ Do not initially automate:
 - forced label-to-field sync;
 - Project view creation;
 - complex form parsing;
-- issue fields at the organization level.
+- issue field administration at the organization level.
 
-GitHub issue fields are a possible later upgrade if the organization standardizes them, but the initial system uses labels + Project fields because they are portable, scriptable, and easy to understand.
+The organization owns native issue types and issue fields. This repo consumes those fields, but the bootstrap scripts do not create or mutate organization-level issue metadata.
 
 ## 14. Setup order
 
@@ -484,10 +483,12 @@ GitHub issue fields are a possible later upgrade if the organization standardize
 3. Run `make bootstrap OWNER=dao-operations REPO=triage`.
 4. Open the created organization Project.
 5. Verify `Status` options manually.
-6. Create the saved views in `docs/project-views.md`.
-7. Enable built-in Project workflows.
-8. Run `make check OWNER=dao-operations REPO=triage`.
-9. Start using it.
+6. Verify native issue types: `Task`, `Bug`, `Feature`, `Idea`, `Decision`.
+7. Verify native issue fields: `Priority`, `Effort`.
+8. Create the saved views in `docs/project-views.md`.
+9. Enable built-in Project workflows.
+10. Run `make check OWNER=dao-operations REPO=triage`.
+11. Start using it.
 
 ## 15. When to evolve this system
 

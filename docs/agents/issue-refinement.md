@@ -11,7 +11,7 @@ Rewrite rough issues into clear, public-safe, actionable issues.
 - Desired outcome.
 - Acceptance criteria.
 - Public context.
-- Labels and Project field suggestions.
+- Issue type, labels, native issue fields, and Project field suggestions.
 
 ## Preserve
 
@@ -38,6 +38,9 @@ Body:
 ...
 
 Labels:
+...
+
+Native issue fields:
 ...
 
 Project fields:

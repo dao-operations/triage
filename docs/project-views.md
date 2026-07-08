@@ -10,7 +10,6 @@ Group by: `Status`.
 
 Visible fields:
 
-- `Effort`
 - `Scope`
 - `Target`
 - `Due`
@@ -75,9 +74,7 @@ Purpose: see work by product/domain/workstream.
 
 Filter:
 
-```text
-label:"type:bug" is:open
-```
+Use the Project filter bar to select native `Issue type = Bug` and open issues.
 
 Group by: `Status`.
 

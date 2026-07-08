@@ -35,13 +35,12 @@ Use `SPEC.md` and `config/triage.toml`.
 
 Allowed namespaces:
 
-- `type:*`
 - `scope:*`
 - `kind:*`
 - `target:*`
 - `needs:*`
 
-Do not create status labels. Do not create priority labels; use GitHub's native issue Priority field. Do not use `br:*`; use `target:*`.
+Do not create type, status, priority, or effort labels. Use GitHub's native issue Type, Priority, and Effort fields. Do not use `br:*`; use `target:*`.
 
 ## Issue quality bar
 
