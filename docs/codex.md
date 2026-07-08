@@ -20,7 +20,7 @@ brew install --cask codex
 Then clone and enter the repo:
 
 ```bash
-gh repo clone DAO-ops/triage
+gh repo clone dao-operations/triage
 cd triage
 ```
 
@@ -74,8 +74,8 @@ Start conservative. Let Codex read and edit the local checkout, but require appr
 Use dry-runs first:
 
 ```bash
-make bootstrap OWNER=DAO-ops REPO=triage DRY_RUN=1
-make check OWNER=DAO-ops REPO=triage
+make bootstrap OWNER=dao-operations REPO=triage DRY_RUN=1
+make check OWNER=dao-operations REPO=triage
 ```
 
 ## Codex Cloud / GitHub review
@@ -83,7 +83,7 @@ make check OWNER=DAO-ops REPO=triage
 For cloud tasks and PR review:
 
 1. Open Codex in ChatGPT.
-2. Connect the GitHub repo `DAO-ops/triage` in Codex environment settings.
+2. Connect the GitHub repo `dao-operations/triage` in Codex environment settings.
 3. Ensure the environment can run Python 3.11+ and GitHub CLI if you expect it to run the setup scripts.
 4. Enable Codex code review for the repo if you want PR reviews.
 5. In a pull request, comment:

@@ -1,6 +1,6 @@
 # DAO-ops Triage
 
-Public work tracker for `DAO-ops/triage`.
+Public work tracker for `dao-operations/triage`.
 
 This repo is the public ledger for DAO-ops work: intake, triage, planning, blockers, decisions, and visible progress. It deliberately stays inside GitHub Issues + one GitHub Project so two maintainers can run it without another project-management system.
 
@@ -18,7 +18,7 @@ This repo is the public ledger for DAO-ops work: intake, triage, planning, block
 Recommended repository:
 
 ```text
-DAO-ops/triage
+dao-operations/triage
 ```
 
 Recommended GitHub Project:
@@ -31,8 +31,8 @@ DAO-ops Tracker
 
 ```bash
 gh auth refresh -s project
-make bootstrap OWNER=DAO-ops REPO=triage
-make check OWNER=DAO-ops REPO=triage
+make bootstrap OWNER=dao-operations REPO=triage
+make check OWNER=dao-operations REPO=triage
 ```
 
 Then open the Project UI, verify the `Status` options, create the saved views in `docs/project-views.md`, and enable the built-in Project workflows listed in `docs/setup.md`. For Codex, see `docs/codex.md`; the repo-level `AGENTS.md` is already prepared.

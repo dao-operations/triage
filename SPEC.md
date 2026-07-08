@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-`DAO-ops/triage` is the public work ledger for a small DAO-ops tracking team.
+`dao-operations/triage` is the public work ledger for a small DAO-ops tracking team.
 
 It exists to:
 
@@ -28,7 +28,7 @@ Do not create more boards, mirrored status labels, or complicated sync jobs unti
 Repository:
 
 ```text
-DAO-ops/triage
+dao-operations/triage
 ```
 
 Project:
@@ -37,7 +37,7 @@ Project:
 DAO-ops Tracker
 ```
 
-Rationale: `triage` is short, action-oriented, and honest about the repo's job. `planning` sounds more strategic than this system should be. `tracking` is accurate but too generic inside the `DAO-ops` org.
+Rationale: `triage` is short, action-oriented, and honest about the repo's job. `planning` sounds more strategic than this system should be. `tracking` is accurate but too generic inside the `dao-operations` org.
 
 ## 4. Repository structure
 
@@ -506,14 +506,14 @@ GitHub issue fields are a possible later upgrade if the organization standardize
 
 ## 13. Setup order
 
-1. Commit this skeleton into `DAO-ops/triage`.
+1. Commit this skeleton into `dao-operations/triage`.
 2. Run `gh auth refresh -s project`.
-3. Run `make bootstrap OWNER=DAO-ops REPO=triage`.
+3. Run `make bootstrap OWNER=dao-operations REPO=triage`.
 4. Open the created Project.
 5. Verify `Status` options manually.
 6. Create the saved views in `docs/project-views.md`.
 7. Enable built-in Project workflows.
-8. Run `make check OWNER=DAO-ops REPO=triage`.
+8. Run `make check OWNER=dao-operations REPO=triage`.
 9. Start using it.
 
 ## 14. When to evolve this system

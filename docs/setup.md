@@ -17,24 +17,24 @@ gh auth refresh -s project
 If the repo does not exist yet:
 
 ```bash
-gh repo create DAO-ops/triage \
+gh repo create dao-operations/triage \
   --public \
   --description "Public DAO-ops triage and work tracker"
 ```
 
-Then commit this skeleton into `DAO-ops/triage`.
+Then commit this skeleton into `dao-operations/triage`.
 
 ## Bootstrap labels and Project fields
 
 ```bash
-make bootstrap OWNER=DAO-ops REPO=triage
+make bootstrap OWNER=dao-operations REPO=triage
 ```
 
 Equivalent direct command:
 
 ```bash
 ./scripts/bootstrap.py \
-  --owner DAO-ops \
+  --owner dao-operations \
   --repo triage \
   --project-title "DAO-ops Tracker"
 ```
@@ -42,9 +42,9 @@ Equivalent direct command:
 Use dry-run first if desired:
 
 ```bash
-make bootstrap OWNER=DAO-ops REPO=triage DRY_RUN=1
+make bootstrap OWNER=dao-operations REPO=triage DRY_RUN=1
 # or
-./scripts/bootstrap.py --owner DAO-ops --repo triage --dry-run
+./scripts/bootstrap.py --owner dao-operations --repo triage --dry-run
 ```
 
 ## Manual Project setup
@@ -65,20 +65,20 @@ Enable or verify these in the Project UI:
 - item added -> `Status = Inbox`;
 - closed issue -> `Status = Done`;
 - merged PR -> `Status = Done`;
-- auto-add issues from `DAO-ops/triage` with filter `is:issue`.
+- auto-add issues from `dao-operations/triage` with filter `is:issue`.
 
 Avoid custom Actions for Project item mutation until manual operation becomes painful.
 
 ## Check taxonomy
 
 ```bash
-make check OWNER=DAO-ops REPO=triage
+make check OWNER=dao-operations REPO=triage
 ```
 
 Strict mode also fails on open issues missing `scope:*`:
 
 ```bash
-make check-strict OWNER=DAO-ops REPO=triage
+make check-strict OWNER=dao-operations REPO=triage
 ```
 
 The default scheduled workflow runs non-strict checks so fresh Inbox issues do not fail CI solely because they are not fully triaged yet.

@@ -2,7 +2,7 @@
 # Scripts read this file. Keep it aligned with SPEC.md.
 
 [repo]
-owner = "DAO-ops"
+owner = "dao-operations"
 name = "triage"
 description = "Public DAO-ops triage and work tracker."
 

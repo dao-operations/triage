@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bootstrap labels and GitHub Project fields for DAO-ops/triage."""
+"""Bootstrap labels and GitHub Project fields for dao-operations/triage."""
 
 from __future__ import annotations
 
