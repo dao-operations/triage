@@ -37,6 +37,10 @@ Project:
 DAO-ops Tracker
 ```
 
+Owner: `dao-operations` organization Project, linked to `dao-operations/triage`.
+
+Visibility: public.
+
 Rationale: `triage` is short, action-oriented, and honest about the repo's job. `planning` sounds more strategic than this system should be. `tracking` is accurate but too generic inside the `dao-operations` org.
 
 ## 4. Repository structure
@@ -519,7 +523,7 @@ GitHub issue fields are a possible later upgrade if the organization standardize
 1. Commit this skeleton into `dao-operations/triage`.
 2. Run `gh auth refresh -s project`.
 3. Run `make bootstrap OWNER=dao-operations REPO=triage`.
-4. Open the created Project.
+4. Open the created organization Project.
 5. Verify `Status` options manually.
 6. Create the saved views in `docs/project-views.md`.
 7. Enable built-in Project workflows.

@@ -52,12 +52,14 @@ This tracker uses the namespaced labels in `config/triage.toml` as its public ta
 
 ## Manual Project setup
 
-Open the created Project and verify:
+Open the created organization Project and verify:
 
 1. Project title is `DAO-ops Tracker`.
-2. `Status` has exactly: `Inbox`, `Backlog`, `Next`, `Doing`, `Blocked`, `Done`.
-3. Custom fields exist: `Priority`, `Effort`, `Scope`, `Target`, `Due`.
-4. Saved views match `docs/project-views.md`.
+2. Project visibility is public.
+3. The Project is linked to `dao-operations/triage`.
+4. `Status` has exactly: `Inbox`, `Backlog`, `Next`, `Doing`, `Blocked`, `Done`.
+5. Custom fields exist: `Priority`, `Effort`, `Scope`, `Target`, `Due`.
+6. Saved views match `docs/project-views.md`.
 
 `Status` often exists on new Projects by default, so scripts warn instead of destructively mutating it.
 

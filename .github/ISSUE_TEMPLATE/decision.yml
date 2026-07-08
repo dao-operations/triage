@@ -1,0 +1,51 @@
+name: Decision
+description: Record a public decision that needs an explicit answer.
+title: "[Decision]: "
+labels:
+  - type:decision
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for public decisions only. Keep private legal, commercial, signer, wallet-control, or operational-security details out of the issue.
+  - type: textarea
+    id: question
+    attributes:
+      label: Decision needed
+      description: What question needs an answer?
+      placeholder: State the decision clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Public context
+      description: What public context should inform the decision?
+      placeholder: Link public references where useful.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options
+      description: Known options or tradeoffs.
+      placeholder: |
+        - Option A:
+        - Option B:
+    validations:
+      required: false
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Completion signal
+      description: What should be recorded when this is resolved?
+      placeholder: Describe the expected decision record.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public_safety
+    attributes:
+      label: Public safety
+      options:
+        - label: This issue contains only public-safe information.
+          required: true

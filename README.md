@@ -27,6 +27,8 @@ Recommended GitHub Project:
 DAO-ops Tracker
 ```
 
+The Project is an organization-owned Project under `dao-operations`, linked to this repository.
+
 ## Quick setup
 
 ```bash
