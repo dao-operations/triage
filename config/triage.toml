@@ -15,7 +15,19 @@ single = ["type:", "priority:", "target:"]
 required_open = ["type:"]
 warn_open = ["scope:"]
 forbidden_prefixes = ["status:", "br:", "area:"]
-forbidden_labels = ["priority:p4", "br:unscheduled"]
+forbidden_labels = [
+  "priority:p4",
+  "br:unscheduled",
+  "bug",
+  "documentation",
+  "duplicate",
+  "enhancement",
+  "good first issue",
+  "help wanted",
+  "invalid",
+  "question",
+  "wontfix",
+]
 
 [[fields]]
 name = "Status"
@@ -50,159 +62,159 @@ type = "DATE"
 [[labels]]
 name = "type:task"
 color = "ededed"
-description = "Concrete work item."
+description = "Concrete work item with a clear completion signal."
 
 [[labels]]
 name = "type:bug"
 color = "d73a4a"
-description = "Broken or incorrect behavior."
+description = "Incorrect or broken behavior that should be fixed."
 
 [[labels]]
 name = "type:idea"
 color = "cfd3d7"
-description = "Suggestion, rough improvement, or possible future work."
+description = "Potential improvement or future work needing refinement."
 
 [[labels]]
 name = "type:decision"
 color = "fbca04"
-description = "Public decision that needs an explicit answer."
+description = "Decision record or open question requiring an explicit answer."
 
 [[labels]]
 name = "priority:p0"
 color = "b60205"
-description = "Interrupt-level blocker or deadline risk."
+description = "Urgent blocker, incident, deadline, or commitment risk."
 
 [[labels]]
 name = "priority:p1"
 color = "d93f0b"
-description = "Important and should be planned."
+description = "High-impact work that should be planned deliberately."
 
 [[labels]]
 name = "priority:p2"
 color = "fbca04"
-description = "Normal useful backlog work."
+description = "Standard useful work with normal priority."
 
 [[labels]]
 name = "priority:p3"
 color = "fef2c0"
-description = "Opportunistic cleanup or polish."
+description = "Low-urgency cleanup, polish, or optional improvement."
 
 [[labels]]
 name = "scope:styfi"
 color = "5319e7"
-description = "styfi / styfi.yearn.fi."
+description = "Work primarily related to styfi."
 
 [[labels]]
 name = "scope:veyfi"
 color = "5319e7"
-description = "veyfi / veyfi.yearn.fi."
+description = "Work primarily related to veyfi."
 
 [[labels]]
 name = "scope:yeth"
 color = "5319e7"
-description = "yeth app, protocol, contracts, research, or operations."
+description = "Work primarily related to yeth."
 
 [[labels]]
 name = "scope:teams"
 color = "5319e7"
-description = "teams app or teams-facing surface."
+description = "Work primarily related to teams-facing systems."
 
 [[labels]]
 name = "scope:ybc"
 color = "5319e7"
-description = "ybc app/domain."
+description = "Work primarily related to ybc."
 
 [[labels]]
 name = "scope:dao"
 color = "5319e7"
-description = "dao.yearn.fi or dao-facing product surface."
+description = "Work primarily related to DAO-facing surfaces."
 
 [[labels]]
 name = "scope:treasury"
 color = "0e8a16"
-description = "treasury admin, accounting, capital allocation, reporting."
+description = "Work primarily related to treasury operations or reporting."
 
 [[labels]]
 name = "scope:governance"
 color = "0e8a16"
-description = "YIPs, votes, proposals, approvals, delegates, voter coordination."
+description = "Work primarily related to governance process or coordination."
 
 [[labels]]
 name = "scope:operations"
 color = "0e8a16"
-description = "Recurring ops, team process, reporting, tracking, public updates, repo hygiene."
+description = "Work primarily related to recurring operations, process, or repo hygiene."
 
 [[labels]]
 name = "kind:frontend"
 color = "1d76db"
-description = "UI, UX, frontend app work."
+description = "Frontend, UI, or user-experience work."
 
 [[labels]]
 name = "kind:backend"
 color = "1d76db"
-description = "APIs, indexing, databases, backend services."
+description = "Backend, API, indexing, or service work."
 
 [[labels]]
 name = "kind:contracts"
 color = "1d76db"
-description = "Smart contracts, deployments, on-chain integration/review."
+description = "Smart contract, deployment, or on-chain integration work."
 
 [[labels]]
 name = "kind:data"
 color = "1d76db"
-description = "Data extraction, analytics, dashboards, exports, reporting pipelines."
+description = "Analytics, reporting, export, or data pipeline work."
 
 [[labels]]
 name = "kind:ops"
 color = "1d76db"
-description = "Runbooks, monitoring, deployments, support, operational execution."
+description = "Operational execution, runbook, deployment, or support work."
 
 [[labels]]
 name = "kind:research"
 color = "1d76db"
-description = "Investigation, analysis, design exploration."
+description = "Investigation, analysis, or design exploration."
 
 [[labels]]
 name = "kind:admin"
 color = "1d76db"
-description = "Coordination, repository hygiene, public updates, budget-process admin."
+description = "Coordination, tracking, documentation, or repository hygiene."
 
 [[labels]]
 name = "target:br3"
 color = "bfdadc"
-description = "Targeted for BR3."
+description = "Intended for the BR3 target window."
 
 [[labels]]
 name = "target:br4"
 color = "bfdadc"
-description = "Targeted for BR4."
+description = "Intended for the BR4 target window."
 
 [[labels]]
 name = "target:br5"
 color = "bfdadc"
-description = "Targeted for BR5."
+description = "Intended for the BR5 target window."
 
 [[labels]]
 name = "target:later"
 color = "eeeeee"
-description = "Valid but explicitly deferred beyond active BRs."
+description = "Valid work deferred beyond active target windows."
 
 [[labels]]
 name = "needs:decision"
 color = "e99695"
-description = "Blocked or waiting on a decision."
+description = "Waiting on a decision."
 
 [[labels]]
 name = "needs:input"
 color = "e99695"
-description = "Blocked or waiting on external input."
+description = "Waiting on input or clarification."
 
 [[labels]]
 name = "needs:access"
 color = "e99695"
-description = "Blocked or waiting on access/permissions."
+description = "Waiting on access or permission."
 
 [[labels]]
 name = "needs:review"
 color = "e99695"
-description = "Blocked or waiting on review."
+description = "Waiting on review."

@@ -47,6 +47,9 @@ make bootstrap OWNER=dao-operations REPO=triage DRY_RUN=1
 ./scripts/bootstrap.py --owner dao-operations --repo triage --dry-run
 ```
 
+After bootstrap, remove unused default GitHub labels such as `bug`, `documentation`, `duplicate`, `enhancement`, `good first issue`, `help wanted`, `invalid`, `question`, and `wontfix`.
+This tracker uses the namespaced labels in `config/triage.toml` as its public taxonomy.
+
 ## Manual Project setup
 
 Open the created Project and verify:

@@ -101,12 +101,12 @@ Done
 
 | Status | Meaning |
 |---|---|
-| `Inbox` | New or untriaged. No one should rely on its labels yet. |
-| `Backlog` | Valid public work, not actively planned. |
-| `Next` | Small near-term queue. Candidate for the next work pull. |
-| `Doing` | Actively being worked by someone. |
-| `Blocked` | Cannot progress without input, access, review, dependency, approval, or decision. |
-| `Done` | Completed, rejected, superseded, duplicated, private-only, or no longer relevant. |
+| `Inbox` | New or untriaged intake. Labels and fields may be incomplete. |
+| `Backlog` | Valid work that is not selected for near-term execution. |
+| `Next` | Ready or nearly ready work queued for near-term pull. |
+| `Doing` | Work actively in progress. |
+| `Blocked` | Work waiting on a dependency, decision, access, input, or review. |
+| `Done` | Work closed with a final outcome. |
 
 Keep `Inbox` near zero, `Next` under five, and `Doing` at one or two items per person.
 
@@ -125,10 +125,10 @@ P3
 
 | Priority | Meaning |
 |---|---|
-| `P0` | Interrupt-level: active incident, severe blocker, deadline, or public commitment risk. |
-| `P1` | Important and should be deliberately planned. |
-| `P2` | Normal useful backlog work. |
-| `P3` | Opportunistic cleanup, polish, or nice-to-have. |
+| `P0` | Urgent work requiring immediate attention. |
+| `P1` | High-impact work that should be planned deliberately. |
+| `P2` | Standard useful work with normal priority. |
+| `P3` | Low-urgency cleanup, polish, or optional improvement. |
 | blank | Not triaged or priority not useful. |
 
 Do not add `P4`. Low-priority work is `P3`, `Backlog`, or `target:later`.
@@ -149,8 +149,8 @@ Unknown
 | Effort | Meaning |
 |---|---|
 | `S` | Less than half a day. |
-| `M` | Roughly one to two days. |
-| `L` | Several days, cross-cutting, risky, or coordination-heavy. |
+| `M` | One to two days. |
+| `L` | Several days, materially complex, or cross-cutting. |
 | `Unknown` | Needs discovery before sizing. |
 | blank | Effort not worth tracking. |
 
@@ -214,10 +214,10 @@ type:decision
 
 | Label | Meaning |
 |---|---|
-| `type:task` | Concrete work item. |
-| `type:bug` | Broken or incorrect behavior. |
-| `type:idea` | Suggestion, rough improvement, or possible future work. |
-| `type:decision` | Public decision that needs an explicit answer. |
+| `type:task` | Concrete work item with a clear completion signal. |
+| `type:bug` | Incorrect or broken behavior that should be fixed. |
+| `type:idea` | Potential improvement or future work needing refinement. |
+| `type:decision` | Decision record or open question requiring an explicit answer. |
 
 ### Priority labels
 
@@ -232,10 +232,10 @@ priority:p3
 
 | Label | Meaning |
 |---|---|
-| `priority:p0` | Interrupt-level blocker or deadline risk. |
-| `priority:p1` | Important and should be planned. |
-| `priority:p2` | Normal useful backlog work. |
-| `priority:p3` | Opportunistic cleanup or polish. |
+| `priority:p0` | Urgent blocker, incident, deadline, or commitment risk. |
+| `priority:p1` | High-impact work that should be planned deliberately. |
+| `priority:p2` | Standard useful work with normal priority. |
+| `priority:p3` | Low-urgency cleanup, polish, or optional improvement. |
 
 Mirror the Project `Priority` field when useful. If they drift, fix both during triage.
 
@@ -257,15 +257,15 @@ scope:operations
 
 | Label | Meaning |
 |---|---|
-| `scope:styfi` | styfi / `styfi.yearn.fi`. |
-| `scope:veyfi` | veyfi / `veyfi.yearn.fi`. |
-| `scope:yeth` | yeth app, protocol, contracts, research, or operations. |
-| `scope:teams` | teams app or teams-facing surface. |
-| `scope:ybc` | ybc app/domain. |
-| `scope:dao` | `dao.yearn.fi` or dao-facing product surface. |
-| `scope:treasury` | treasury admin, accounting, capital allocation, reporting. |
-| `scope:governance` | YIPs, votes, proposals, approvals, delegates, voter coordination. |
-| `scope:operations` | Recurring ops, team process, reporting, tracking, public updates, repo hygiene. |
+| `scope:styfi` | Work primarily related to styfi. |
+| `scope:veyfi` | Work primarily related to veyfi. |
+| `scope:yeth` | Work primarily related to yeth. |
+| `scope:teams` | Work primarily related to teams-facing systems. |
+| `scope:ybc` | Work primarily related to ybc. |
+| `scope:dao` | Work primarily related to DAO-facing surfaces. |
+| `scope:treasury` | Work primarily related to treasury operations or reporting. |
+| `scope:governance` | Work primarily related to governance process or coordination. |
+| `scope:operations` | Work primarily related to recurring operations, process, or repo hygiene. |
 
 Use both `scope:dao` and `scope:governance` if work touches `dao.yearn.fi` and the governance process.
 
@@ -285,13 +285,13 @@ kind:admin
 
 | Label | Meaning |
 |---|---|
-| `kind:frontend` | UI, UX, frontend app work. |
-| `kind:backend` | APIs, indexing, databases, backend services. |
-| `kind:contracts` | Smart contracts, deployments, on-chain integration/review. |
-| `kind:data` | Data extraction, analytics, dashboards, exports, reporting pipelines. |
-| `kind:ops` | Runbooks, monitoring, deployments, support, operational execution. |
-| `kind:research` | Investigation, analysis, design exploration. |
-| `kind:admin` | Coordination, repository hygiene, public updates, budget-process admin. |
+| `kind:frontend` | Frontend, UI, or user-experience work. |
+| `kind:backend` | Backend, API, indexing, or service work. |
+| `kind:contracts` | Smart contract, deployment, or on-chain integration work. |
+| `kind:data` | Analytics, reporting, export, or data pipeline work. |
+| `kind:ops` | Operational execution, runbook, deployment, or support work. |
+| `kind:research` | Investigation, analysis, or design exploration. |
+| `kind:admin` | Coordination, tracking, documentation, or repository hygiene. |
 
 ### Target labels
 
@@ -308,10 +308,10 @@ These mirror the Project `Target` field.
 
 | Label | Meaning |
 |---|---|
-| `target:br3` | Targeted for BR3. |
-| `target:br4` | Targeted for BR4. |
-| `target:br5` | Targeted for BR5. |
-| `target:later` | Valid but explicitly deferred beyond active BRs. |
+| `target:br3` | Intended for the BR3 target window. |
+| `target:br4` | Intended for the BR4 target window. |
+| `target:br5` | Intended for the BR5 target window. |
+| `target:later` | Valid work deferred beyond active target windows. |
 
 ### Needs labels
 
@@ -326,10 +326,10 @@ needs:review
 
 | Label | Meaning |
 |---|---|
-| `needs:decision` | Blocked or waiting on a decision. |
-| `needs:input` | Blocked or waiting on external input. |
-| `needs:access` | Blocked or waiting on access/permissions. |
-| `needs:review` | Blocked or waiting on review. |
+| `needs:decision` | Waiting on a decision. |
+| `needs:input` | Waiting on input or clarification. |
+| `needs:access` | Waiting on access or permission. |
+| `needs:review` | Waiting on review. |
 
 When an issue is blocked, set Project `Status = Blocked`, add the relevant `needs:*` label if useful, and leave a blocker comment.
 
@@ -343,6 +343,15 @@ br:*
 area:*
 priority:p4
 br:unscheduled
+bug
+documentation
+duplicate
+enhancement
+good first issue
+help wanted
+invalid
+question
+wontfix
 ```
 
 Reasons:
@@ -351,6 +360,7 @@ Reasons:
 - `target:*` replaces the older `br:*` namespace and works if targets later stop being BR-only.
 - `area:*` overlaps with `scope:*` and `kind:*`.
 - `priority:p4` overlaps with `Backlog`, blank `Target`, and `target:later`.
+- Default GitHub labels are too broad for this tracker; use the namespaced taxonomy instead.
 
 ## 8. Issue templates
 
