@@ -100,13 +100,13 @@ For one-off focused reviews:
 
 ## Two-person operating pattern
 
-- Person A uses Codex CLI for local edits to docs, templates, scripts, and weekly-update drafts.
+- Person A uses Codex CLI for local edits to docs, scripts, and weekly-update drafts.
 - Person B uses GitHub PR review plus `@codex review` for a second pass.
 - Only humans run final `make bootstrap` against the live repo until there is repeated pain worth automating.
 
 ## Good Codex tasks for this repo
 
-- tighten issue templates;
+- review issue intake friction;
 - compare `SPEC.md` and `config/triage.toml`;
 - draft weekly updates;
 - propose labels for a batch of issues;

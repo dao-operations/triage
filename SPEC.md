@@ -57,9 +57,6 @@ triage/
   .editorconfig
   .gitignore
   .github/
-    ISSUE_TEMPLATE/
-      issue.md
-      config.yml
     workflows/
       taxonomy-check.yml
     PULL_REQUEST_TEMPLATE.md
@@ -331,11 +328,11 @@ Reasons:
 - `area:*` overlaps with `scope:*` and `kind:*`.
 - Default GitHub labels are too broad for this tracker; use the namespaced taxonomy instead.
 
-## 9. Issue templates
+## 9. Issue intake
 
-Use one minimal template named `Issue`.
+Do not use issue templates.
 
-The template does not set labels, require body fields, or add title prefixes. Title-only issues are acceptable at intake. Choose the native issue type manually in the GitHub issue UI, then let triage add detail, labels, and fields when needed.
+Use GitHub's plain blank issue flow. Title-only issues are acceptable at intake. Choose the native issue type manually in the GitHub issue UI, then let triage add detail, labels, and fields when needed.
 
 ## 10. Views
 
